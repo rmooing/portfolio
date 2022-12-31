@@ -92,54 +92,53 @@
 }
 .main .main_sec {
   width: 100%;
-  /* max-width: 1296px; */
   margin: 0 auto;
-  /* position: relative; */
 }
-.main .main_sec .main_img .banner1 {
-  position: relative;
-}
-.main .main_sec .main_img .banner1 .counter {
+.main .main_sec .main_img .counter {
   position: absolute;
   bottom: 20px;
   right: 20px;
 }
-.main .main_sec .main_img .banner1 .main_btn {
-  width: 100%;
-}
-.main .main_sec .main_img .banner1 .main_btn .left_btn {
-  color: rgb(138, 138, 138);
-  position: absolute;
-  top: 196px;
-  left: -50px;
-  background-color: #fff;
-  opacity: 0.2;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 38px;
-  z-index: 20;
-}
-.main .main_sec .main_img .banner1 .main_btn .right_btn {
-  color: rgb(162, 162, 162);
-  position: absolute;
-  top: 196px;
-  right: -50px;
-  background-color: #fff;
-  opacity: 0.2;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 38px;
-  z-index: 20;
-}
 .main .main_sec .main_img {
   width: 100%;
+  max-width: 1296px;
   height: 432px;
   margin: 0 auto;
   overflow: hidden;
+  position: relative;
+}
+.main .main_sec .main_img .main_btn {
+  width: 100%;
+  cursor: pointer;
+}
+.main .main_sec .main_img .main_btn .left_btn {
+  position: absolute;
+  top: 196px;
+  left: 376px;
+  background-color: rgba(255, 255, 255, 0.247);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 38px;
+  z-index: 20;
+}
+.main .main_sec .main_img .main_btn .left_btn i, 
+.main .main_sec .main_img .main_btn .right_btn i {
+  color: #fff;
+  z-index: 30;
+}
+.main .main_sec .main_img .main_btn .right_btn {
+  position: absolute;
+  top: 196px;
+  right: 376px;
+  background-color: rgba(255, 255, 255, 0.247);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 38px;
+  z-index: 20;
 }
 .main .main_sec .main_img ul {
   display: flex;

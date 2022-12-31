@@ -1016,6 +1016,8 @@ body {
   bottom: 40px;
   right: 50px;
   z-index: 40;
+  cursor: pointer;
+  transition: scroll 0.5s ease-in-out;
 }
 #wrap .scroll_btn .up_btn {
   width: 25px;
