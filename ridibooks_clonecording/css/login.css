@@ -1,0 +1,158 @@
+@charset "utf-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Helvetica Neue, ridi-roboto, "Noto Sans KR", sans-serif;
+}
+a {
+  text-decoration: none;
+  outline: 0;
+  color: #000;
+}
+ul,
+li {
+  list-style: none;
+}
+
+body {
+  background-color: #ebf6ff;
+}
+#wrap {
+  width: 100%;
+}
+.header {
+  width: 100%;
+}
+.header_sec {
+  margin: 0 auto;
+  height: 40px;
+  padding: 13px 0;
+  text-align: center;
+}
+.header_sec img {
+  width: 35px;
+  height: 13px;
+}
+.header .line {
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+}
+
+/* login */
+.login {
+  width: 100%;
+  margin-top: 84px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.login .login_form {
+  width: 338px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+.login .login_form input {
+  outline: none;
+  width: 338px;
+  height: 48px;
+  text-indent: 20px;
+  font-size: 15px;
+  /* background-color: #e9f0ff; */
+}
+.login .login_form #id {
+  border: 1px solid #ccc;
+  border-width: 1px 1px 0 1px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.login .login_form #id::placeholder,
+.login .login_form #password::placeholder {
+  color: #8691a5;
+}
+
+.login .login_form #password {
+  border: 1px solid #ccc;
+  border-width: 1px 1px 0 1px;
+}
+.login .search {
+  width: 338px;
+  height: 48px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  align-items: center;
+  text-indent: 10px;
+  background-color: #f7faff;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.login .search ul {
+  display: flex;
+  align-items: center;
+}
+.login .search p {
+  font-size: 12px;
+  color: #8d98aa;
+}
+.login .search .check_box {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  margin-left: 10px;
+}
+input[type=checkbox] {
+  border: 1px solid #b8c2cb;
+  border-radius: 3px;
+  width: 17px;
+  height: 17px;
+  appearance: none;
+}
+.login .search .check_box p {
+  margin-left: -5px;
+}
+
+.login .search .id {
+  margin-left: 45px;
+  margin-right: 5px;
+}
+.login .search li:last-of-type {
+  border-left: 1px solid #ccc;
+}
+.login .search .password {
+  margin-left: -4px;
+}
+
+
+/* btn */
+.btn {
+  width: 100%;
+}
+.btn .login_btn {
+  background-color: #1f8ce6;
+  width: 338px;
+  height: 48px;
+  border-radius: 5px;
+  border: 1px solid #ccc;  
+  margin: 0 auto;
+}
+.btn .login_btn p {
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+}
+.btn .join_btn {
+  background-color: #fff;
+  width: 338px;
+  height: 48px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+.btn .join_btn p {
+  color: rgb(90, 90, 90);
+  text-align: center;
+  line-height: 50px;
+}
