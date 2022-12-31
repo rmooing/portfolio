@@ -547,6 +547,7 @@
 }
 .popup .close_btn {
   position: relative;
+  cursor: pointer;
 }
 .popup .close_btn i {
   position: absolute;
