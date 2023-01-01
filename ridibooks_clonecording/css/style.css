@@ -1,5 +1,6 @@
 body {
   overflow-x: hidden;
+  /* scroll-behavior: smooth; */
 }
 
 /* top1 */
@@ -1009,7 +1010,7 @@ body {
 #wrap .scroll_btn {
   width: 60px;
   height: 60px;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(222, 222, 222);
   background-color: #fff;
   border-radius: 50%;
   position: fixed;
