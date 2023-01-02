@@ -1,17 +1,30 @@
 //메인 배너 버튼 
-const mainSec = document.querySelector(".main_sec")
 const mainImg = document.querySelector(".main_img");
 const bannerImg = document.querySelector(".banner");
+const bannerLi = document.querySelector(".main_img li")
 
 const leftBtn = document.querySelector(".left_btn");
 const rightBtn = document.querySelector(".right_btn");
 
-let bgImg = document.querySelector(".bg_img");
-let imgCount = bgImg.length;
-let currentIndex = 0;
+const imgCount = bannerLi.length;
+const containerWidth = 432;
+const view = 3;
 
-lefttBtn.addEventListener("click", function(){
+const currentIndex = 0;
 
+// bannerImg.style.width = containerWidth * view + "px";
+
+function slide (num) {
+  bannerImg.style.left = containerWidth * -num + "px";
+  currentIndex = num;
+}
+
+leftBtn.addEventListener("click", function(){
+  if(currentIndex < imgCount - view) {
+    slide(currentIndex + 1)
+  } else {
+    slide(0)
+  }
 });
 
 //메인 베스트 배너 버튼
