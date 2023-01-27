@@ -1,6 +1,6 @@
 body {
   overflow-x: hidden;
-  /* scroll-behavior: smooth; */
+  scroll-behavior: smooth;
 }
 
 /* top1 */
@@ -43,7 +43,7 @@ body {
 }
 
 .top_menu1 .menu1_gnb .top1 .category_list li {
-  padding-right: 30px;
+  padding-right: 26px;
 }
 
 .top_menu1 .menu1_gnb .top1 .category_list li:nth-child(3) a {
@@ -54,11 +54,11 @@ body {
 .top_menu1 .menu1_gnb .top1 .category_join li a {
   color: rgb(134, 134, 134);
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .top_menu1 .menu1_gnb .top1 .category_join li {
-  margin-left: 30px;
+  margin-left: 26px;
 }
 
 
@@ -127,7 +127,7 @@ body {
 }
 .top_menu2 .top2 .right_menu ul li {
   margin-top: 5px;
-  margin-left: 29px;
+  margin-left: 27px;
 }
 
 .top_menu2 .top2 .right_menu ul li img {
@@ -157,7 +157,7 @@ body {
 .top_menu3 .top3 .top_cate ul li:nth-child(1) a {
   font-size: 24px;
   color: #1E9EFF;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .top_menu3 .top3 .top_cate ul li:nth-child(2) a {
@@ -181,8 +181,8 @@ body {
 }
 
 .top_menu3 .top3 .bottom_cate ul li {
-  margin-right: 15px;
-  width: 50px;
+  margin-right: 13px;
+  width: 48px;
   height: 34px;
   line-height: 35px;
 }
@@ -195,7 +195,7 @@ body {
 
 .top_menu3 .top3 .bottom_cate ul li:nth-child(1) a {
   color: #fff;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 /* main */
@@ -250,17 +250,17 @@ body {
   height: 400px;
 }
 .main .main_sec .main_img .img_list .banner_list .banner1 {
-  background: url(/img/1664935917987_MjIwMjA3.jpg) no-repeat center center;
+  background: url(/ridibooks_clonecording/img/1664935917987_MjIwMjA3.jpg) no-repeat center center;
   width: 100%;
   max-width: 1018px;
   border-radius: 5px;
   position: relative;
 }
 .main .main_sec .main_img .img_list .banner_list .banner2 {
-  background: url(/img/1669364278262_MjIxMTIx.jpg) no-repeat center center;
+  background: url(/ridibooks_clonecording/img/1668384317879_MjIxMTAx.jpg) no-repeat center center;
 }
 .main .main_sec .main_img .img_list .banner_list .banner3 {
-  background: url(/img/1669353266250_w6vCucKF.jpg) no-repeat center center;
+  background: url(/ridibooks_clonecording/img/1669266576551_MjIxMTE4.jpg) no-repeat center center;
 }
 .main .main_sec .main_img .img_list .banner_list .banner2,
 .main .main_sec .main_img .img_list .banner_list .banner3 {
@@ -392,12 +392,13 @@ body {
   overflow: hidden;
 }
 
-.middle_category1 .mcate_list1 .cover_img ul {
+.middle_category1 .mcate_list1 .cover_img .listul {
   display: flex;
+  position: relative;
 }
 
 .middle_category1 .mcate_list1 .cover_img ul li {
-  position: relative;
+  /* position: relative; */
   margin-right: 6px;
 }
 
@@ -484,6 +485,7 @@ body {
 
 .middle_category1 .mcate_list1 .btn {
   width: 100%;
+  cursor: pointer;
 }
 
 .middle_category1 .mcate_list1 .btn .left_btn {
@@ -500,6 +502,7 @@ body {
   z-index: 20;
   border: 1px solid #eee;
   box-shadow: 0px 0px 10px rgba(232, 232, 232, 0.5);
+  /* display: none; */
 }
 
 .middle_category1 .mcate_list1 .btn .right_btn {
@@ -523,7 +526,6 @@ body {
   width: 100%;
   margin-top: 48px;
 }
-
 .middle_category2 .cate2_sec .title {
   display: flex;
   align-items: center;
@@ -548,7 +550,6 @@ body {
   width: 1110px;
   position: relative;
   /* border: 1px solid aqua; */
-  
 }
 
 .middle_category2 .mcate_list2 .btn {
@@ -897,15 +898,10 @@ body {
   margin-top: 57px;
   display: inline-block;
 }
-.footer .footer_sec {
-  margin: 48px 0 42px 0;
-}
 .footer .line {
   width: 100%;
   border-bottom: 1px solid #eee;
-}
-.footer .footer_sec {
-  color: #aaa;
+  margin-bottom: 41px;
 }
 .footer .footer_sec .board {
   display: flex;
@@ -943,6 +939,10 @@ body {
   color: #a2a2a2;
   font-size: 13px;
 }
+.footer .footer_sec .board .notice ul li:first-child > a {
+  color: #787878;
+}
+
 .footer .footer_sec .board .notice ul li .n_icon {
   width: 13px;
   height: 13px;
@@ -983,8 +983,8 @@ body {
 }
 .footer .footer_sec .business .ridi {
   font-size: 12px;
-  font-weight: 700;
-  color: #a2a2a2;
+  font-weight: 500;
+  color: #6a6a6a;
 }
 .footer .footer_sec .business .business_info {
   width: 300px;
@@ -998,8 +998,8 @@ body {
   color: #a2a2a2;
 }
 .footer .footer_sec .business .business_info li:nth-of-type(2) a {
-  font-weight: 800;
-  color: #a2a2a2;
+  font-weight: 600;
+  color: #6a6a6a;
 }
 .footer .footer_sec .business .copyright {
   font-size: 11px;
