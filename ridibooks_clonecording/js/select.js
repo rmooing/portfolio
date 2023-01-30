@@ -1,168 +1,200 @@
-//메인 배너 버튼 
-// const mainImg = document.querySelector(".banner");
-// const mainImgLi = document.querySelectorAll(".banner li")
+// 메인 배너 버튼 
+const slides = document.querySelector(".banner");
+const slidesLi = document.querySelectorAll(".banner li")
 
-// const slideCount = mainImgLi.length;
-// const slideWidth = 432;
-// const view = 3;
+const slideCount = slidesLi.length;
+const slideWidth = 432;
 
-// let currentIdx = 0;
+let currentIdx = 0;
 
-// const leftBtn = document.querySelector(".left_btn");
-// const rightBtn = document.querySelector(".right_btn");
+const leftBtn = document.querySelector(".left_btn");
+const rightBtn = document.querySelector(".right_btn");
 
-// mainImg.style.width = slideWidth * slideCount + "px";
+makeClone();
 
+function makeClone() {
+  for(let i = 0; i < slideCount; i++) {
+    const clones = slidesLi[i].cloneNode(true);
+    clones.classList.add("clone");
+    slides.appendChild(clones);
+  }
+  
+  for(let i = slideCount - 1; i >= 0; i--) {
+    const clones = slidesLi[i].cloneNode(true);
+    clones.classList.add("clone");
+    slides.prepend(clones);
+  }
 
-// function moveSlide (num) {
-//   mainImg.style.left = -num * slideWidth + "px";
-//   currentIdx = num;
-// }
-// rightBtn.addEventListener("click", () => {
-//   if(currentIdx < slideCount - view) {
-//     moveSlide(currentIdx + 1)
-//   } else {
-//     moveSlide(0)
-//   }
-// });
+  updateWidth();
+  setInitialPos();
 
-// leftBtn.addEventListener("click", () => {
-//   if(currentIdx > 0) {
-//     moveSlide(currentIdx - 1)
-//   } else {
-//     moveSlide(slideCount - view)
-//   }
-// });
+  setTimeout(function() {
+    slides.classList.add('animated');
+  },100);
+}
 
-// function loopSlide() {
-//   // moveSlide(currentIdx + 1)
-// }
+function updateWidth() {
+  const currentSlides = document.querySelectorAll(".banner li");
+  const newSlideCount = currentSlides.length;
+  const newWidth = slideWidth * newSlideCount + 'px';
+  slides.style.width = newWidth;
+}
 
-// setInterval(loopSlide,1000);
+function setInitialPos() {
+  const initial1 = -slideWidth * slideCount;
+  slides.style.transform = `translateX(${initial1}px)`;
+}
 
+function moveSlide (num) {
+  let moveLeft = -num * slideWidth + "px";
+  slides.style.left = moveLeft;
+  currentIdx = num;
 
-// 캐러셀 왼쪽, 오른쪽 버튼
-const carouselRightBtn = document.querySelector(".right_btn");
-const carouselLeftBtn = document.querySelector(".left_btn");
+  if(currentIdx === slideCount) {
+    setTimeout(() => {
+      slides.classList.remove('animated')
+      slides.style.left = '0px';
+      currentIdx = 0;
+    },500);
 
-// 캐러셀 리스트, 캐러셀 이미지
-let carousel_list = document.querySelector(".banner");
-let carouselImgs = document.querySelectorAll(".banner li");
+    setTimeout(() => {
+      slides.classList.add('animated')
+    },600);
+  };
 
-// 슬라이드 인덱스, 슬라이드 수, 캐러셀 너비, 캐러셀 높이
-let slideIndex = 0;
-const maxSlideIndex = carouselImgs.length;
-const carouselWidth = carouselImgs[0].clientWidth;
+  if (currentIdx === -slideCount) {
+    setTimeout(() => {
+      slides.style.left = '0px'  
+      currentIdx = 0; 
+      slides.classList.remove('animated')
+    }, 200);
 
-// 왼쪽, 오른쪽 복사본 추가
-const cloneLastNode = carousel_list.lastElementChild.cloneNode(true);
-const cloneFirstNode = carousel_list.firstElementChild.cloneNode(true);
-carousel_list.insertBefore(cloneLastNode, carousel_list.firstElementChild);
-carousel_list.append(cloneFirstNode);
+    setTimeout(() => {
+      slides.classList.add('animated')
+    }, 300);
+  };
+};
 
-// 캐러셀 리스트 너비 설정(복사본 2개 추가)
-carousel_list.style.width = carouselWidth * (maxSlideIndex + 2) + "px";
-// 캐러셀 리스트 초기 위치 설정
-carousel_list.style.transform = "translateX(-" + carouselWidth + "px)";
+var timer = undefined;
 
-// 캐러셀 오른쪽 이동 버튼
-carouselRightBtn.addEventListener("click", function(){
-    // 복사본을 제외한 이미지 이동인 경우(기본 이동)
-    if(slideIndex <= maxSlideIndex - 1) {
-        carousel_list.style.transition = "transform 0.2s ease-in-out";
-        carousel_list.style.transform = "translateX(-" + (carouselWidth * (slideIndex + 2)) + "px)";
-        slideIndex++;
-    }
+function autoSlide() {
+  if(timer === undefined) {
+      timer = setInterval(function(){
+      moveSlide(currentIdx + 1);
+    },4000);
+  }
+};
 
-    // 이동 후 오른쪽 복사본 이미지인 경우
-    // transition = 0ms : 애니메이션 효과 제거
-    // 첫번째 이미지로 이동
-    if(slideIndex == maxSlideIndex){
-        setTimeout(function() {
-            carousel_list.style.transition = "0ms";
-            carousel_list.style.transform = "translateX(-" + carouselWidth + "px)";
-        }, 200);
+function stopSlide() {
+  clearInterval(timer);
+  timer = undefined;
+};
 
-        slideIndex = 0;
-    }
+rightBtn.addEventListener("click", () => {
+  moveSlide(currentIdx + 1);
+  stopSlide();
 });
 
-// 캐러셀 왼쪽 이동 버튼
-carouselLeftBtn.addEventListener("click", () => {
-    // 복사본을 제외한 이미지 이동인 경우(기본 이동)
-    if (slideIndex >= 0) {
-        carousel_list.style.transition = "transform 0.2s ease-in-out";
-        carousel_list.style.transform = "translateX(-" + (carouselWidth * slideIndex) + "px)";
-        slideIndex--;
-    }
-
-    // 이동 후 왼쪽 복사본 이미지인 경우
-    // transition = 0ms : 애니메이션 효과 제거
-    // 마지막 이미지로 이동
-    if (slideIndex < 0) {
-        setTimeout(function() {
-            carousel_list.style.transition = "0ms";
-            carousel_list.style.transform = "translateX(-" + (carouselWidth * maxSlideIndex) + "px)";
-        }, 200);
-
-        slideIndex = maxSlideIndex - 1;
-    }
+leftBtn.addEventListener("click", () => {
+  moveSlide(currentIdx - 1);
 });
 
-
-
-
-
-
-
+autoSlide();
 
 
 //메인 베스트 배너 버튼
 const bestList = document.querySelector(".best_list");
-const bestListLi = document.querySelector(".best_list li")
+const bestListLi = document.querySelectorAll(".best_list li")
 
 const listCount = bestListLi.length;
 const listWidth = 140;
 const margin = 24;
-const listview = 5;
 
 let currentIdx1 = 0;
 
 const prevBtn = document.querySelector(".prev_btn");
 const nextBtn = document.querySelector(".next_btn");
 
-bestList.style.width = (listWidth + margin) * listCount + "px";
+makeClone1();
+
+function makeClone1() {
+  for(let i = 0; i < listCount; i++) {
+    const clones = bestListLi[i].cloneNode(true);
+    clones.classList.add("clone");
+    bestList.appendChild(clones);
+  }
+
+  for(let i = listCount - 1; i >= 0; i--) {
+    const clones = bestListLi[i].cloneNode(true);
+    clones.classList.add("clone");
+    bestList.prepend(clones);
+  }
+
+  updateWidth1();
+  setInitialPos2();
+
+  setTimeout(function() {
+    bestList.classList.add('animated');
+  },100);
+}
+
+function updateWidth1() {
+  const currentSlides = document.querySelectorAll(".best_list li");
+  const newSlideCount = currentSlides.length;
+  const newWidth = (listWidth + margin) * newSlideCount + 'px';
+  bestList.style.width = newWidth;
+};
+
+function setInitialPos2() {
+  const initial1 = -(listWidth + margin) * listCount;
+  bestList.style.transform = `translateX(${initial1}px)`;
+};
 
 function listSlide (num) {
-  bestList.style.left = -num * 800 + "px";
+  bestList.style.left = -num * (listWidth + margin) + "px";
   currentIdx1 = num;
+
+  if(currentIdx1 === listCount) {
+    setTimeout(() => {
+      bestList.classList.remove('animated')
+      bestList.style.left = '0px';
+      currentIdx1 = 0;
+    },500);
+
+    setTimeout(() => {
+      bestList.classList.add('animated')
+    },600);
+  };
+
+  if (currentIdx1 === -listCount) {
+    setTimeout(() => {
+      bestList.style.left = '0px'  
+      currentIdx1 = 0; 
+      bestList.classList.remove('animated')
+    }, 200);
+
+    setTimeout(() => {
+      bestList.classList.add('animated')
+    }, 300);
+  };
 };
 
 nextBtn.addEventListener("click", function() {
-  if(currentIdx1 < listCount - listview) {
-    listSlide(currentIdx1 + 1)
-  } else {
-    moveSlide(0)
-  }
-  console.log('hi');
+  listSlide(currentIdx1 + 1);
 });
 
 prevBtn.addEventListener("click", function() {
-  if(currentIdx1 > 0) {
-    listSlide(currentIdx1 - 1)
-  } else {
-    listSlide(listCount - listview)
-  }
+  listSlide(currentIdx1 - 1);
 });
 
 //팝업 닫기 버튼
-// const closeBtn = document.querySelector(".close_btn");
-// const popUp = document.querySelector(".popup");
+const closeBtn = document.querySelector(".close_btn");
+const popUp = document.querySelector(".popup");
 
-// popUpClose = () => {
-//   popUp.classList.remove("popup");
-// }
+popUpClose = () => {
+  popUp.classList.remove("popup");
+}
 
-// closeBtn.addEventListener("click", popUpClose);
+closeBtn.addEventListener("click", popUpClose);
 
 
