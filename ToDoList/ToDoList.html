@@ -1,24 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To Do List</title>
-  <link rel="stylesheet" href="css/ToDoList.css">
-</head>
-<body>
-  <h3>Rmooing</h3>
-  <h1 id="clock">00:00:00</h1>
-  <form action="" id="login">
-    <input type="text" placeholder="login">
-    <button>submit</button>
-  </form>
-  <form action="" id="toDoList">
-    <input type="text" placeholder="To Do List">
-    <button>check</button>
-    <ul></ul>
-  </form>
-  <script src="js/ToDoList.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <link rel="stylesheet" href="css/ToDoList.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:400,700|Poppins"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,700|Poppins" rel="stylesheet">
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"
+    ></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script defer src="js/ToDoList.js"></script>
+    <!-- <script defer src="js/gsap.js"></script> -->
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h4 id="home">Home</h4>
+        <p id="clock"></p>
+      </div>
+      <div id="container">
+        <div id="cloud">
+          <img src="img/cloud.png" alt="">
+        </div>
+        <div id="forms" class="hidden">
+          <form id="login-form"  >
+            <input
+              required
+              maxlength="15"
+              type="text"
+              placeholder="login"
+              id="login"
+            />
+            <input type="submit" value="Log In" id="login_btn" />
+          </form>  
+        </div>
+        <div id="grid">
+          <form id="todo-form" class="hidden">
+            <input required type="text" placeholder="To Do List" id="todo" />
+          </form>
+          <h1 id="userid" class="hidden"></h1>
+          <div id="dash-board">
+            <div id="profile">
+              <div class="img"></div>
+              <div class="text">
+                <p id="username1"></p>
+              </div>
+            </div>
+            <ul id="todo-list"></ul>
+            <div id="dash-img"></div>
+          </div>
+        </div>
+        <div id="bg-image"></div>
+      </div>
+    </div>
+  </body>
 </html>
